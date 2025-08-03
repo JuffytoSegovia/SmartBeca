@@ -10,18 +10,18 @@ const Header = () => {
   }
 
   return (
-    <header className="bg-white shadow-sm border-b border-gray-200">
+    <header className="bg-blue-600 shadow-lg">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           
           {/* Logo y título */}
           <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">B18</span>
-            </div>
-            <h1 className="text-xl font-semibold text-gray-800">
-              SmartBeca
+            <h1 className="text-xl font-bold text-white">
+              Beca 18 - Programa Nacional de Becas
             </h1>
+            <span className="text-blue-200 text-sm hidden md:block">
+              Sistema de Información para Postulantes
+            </span>
           </div>
 
           {/* Navegación derecha */}
@@ -29,24 +29,24 @@ const Header = () => {
             {isLoggedIn ? (
               <>
                 {/* Usuario logueado */}
-                <div className="flex items-center space-x-2 text-gray-600">
+                <div className="flex items-center space-x-2 text-white">
                   <User size={18} />
                   <span className="text-sm">Admin</span>
                 </div>
                 
                 <button
                   onClick={handleLogout}
-                  className="flex items-center space-x-2 px-3 py-2 text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg transition-colors"
+                  className="flex items-center space-x-2 px-3 py-2 text-white hover:bg-blue-700 rounded-lg transition-colors"
                 >
                   <LogOut size={18} />
                   <span className="text-sm">Salir</span>
                 </button>
               </>
             ) : (
-              /* Usuario no logueado */
-              <div className="text-sm text-gray-500">
-                Beca 18 - Sistema de Información
-              </div>
+              /* Botón acceder como admin */
+              <button className="bg-blue-800 hover:bg-blue-900 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+                Acceder como Admin
+              </button>
             )}
           </div>
         </div>
