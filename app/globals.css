@@ -1,0 +1,194 @@
+/* IMPORTACIONES DE TAILWIND CSS */
+@import "tailwindcss";
+
+/* VARIABLES CSS PARA SMARTBECA */
+:root {
+  /* Colores principales de SmartBeca */
+  --smartbeca-primary: #1e40af;        /* Azul principal suave */
+  --smartbeca-primary-dark: #1e3a8a;   /* Azul oscuro para hover */
+  --smartbeca-primary-light: #3b82f6;  /* Azul claro para estados */
+  
+  /* Grises del sistema */
+  --smartbeca-gray-50: #f9fafb;
+  --smartbeca-gray-100: #f3f4f6;
+  --smartbeca-gray-200: #e5e7eb;
+  --smartbeca-gray-300: #d1d5db;
+  --smartbeca-gray-400: #9ca3af;
+  --smartbeca-gray-500: #6b7280;
+  --smartbeca-gray-600: #4b5563;
+  --smartbeca-gray-700: #374151;
+  --smartbeca-gray-800: #1f2937;
+  --smartbeca-gray-900: #111827;
+  
+  /* Colores de estado */
+  --smartbeca-success: #059669;
+  --smartbeca-success-light: #d1fae5;
+  --smartbeca-error: #dc2626;
+  --smartbeca-error-light: #fee2e2;
+  --smartbeca-warning: #d97706;
+  --smartbeca-warning-light: #fef3c7;
+  
+  /* Espaciado y tipografía */
+  --smartbeca-border-radius: 8px;
+  --smartbeca-border-radius-lg: 12px;
+  --smartbeca-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --smartbeca-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+/* ESTILOS BASE DEL PROYECTO */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--smartbeca-gray-900);
+  background: var(--smartbeca-gray-50);
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ENLACES BASE */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--smartbeca-primary);
+}
+
+/* CLASES UTILITARIAS PERSONALIZADAS */
+.smartbeca-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .smartbeca-container {
+    padding: 0 2rem;
+  }
+}
+
+.smartbeca-btn-primary {
+  background-color: var(--smartbeca-primary);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--smartbeca-border-radius);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--smartbeca-shadow);
+}
+
+.smartbeca-btn-primary:hover {
+  background-color: var(--smartbeca-primary-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--smartbeca-shadow-lg);
+}
+
+.smartbeca-btn-secondary {
+  background-color: white;
+  color: var(--smartbeca-primary);
+  border: 2px solid var(--smartbeca-primary);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--smartbeca-border-radius);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.smartbeca-btn-secondary:hover {
+  background-color: var(--smartbeca-primary);
+  color: white;
+}
+
+/* GRADIENTES PERSONALIZADOS */
+.smartbeca-gradient {
+  background: linear-gradient(135deg, var(--smartbeca-primary) 0%, var(--smartbeca-primary-dark) 100%);
+}
+
+.smartbeca-gradient-light {
+  background: linear-gradient(135deg, var(--smartbeca-gray-50) 0%, var(--smartbeca-gray-100) 100%);
+}
+
+/* UTILIDADES DE TEXTO */
+.smartbeca-text-primary {
+  color: var(--smartbeca-primary);
+}
+
+.smartbeca-text-secondary {
+  color: var(--smartbeca-gray-600);
+}
+
+.smartbeca-heading {
+  font-weight: 700;
+  color: var(--smartbeca-gray-900);
+  line-height: 1.2;
+}
+
+/* ANIMACIONES SUAVES */
+.smartbeca-fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ESTILOS PARA CARDS */
+.smartbeca-card {
+  background: white;
+  border-radius: var(--smartbeca-border-radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--smartbeca-shadow);
+  transition: all 0.3s ease;
+  border: 1px solid var(--smartbeca-gray-200);
+}
+
+.smartbeca-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--smartbeca-shadow-lg);
+  border-color: var(--smartbeca-primary-light);
+}
+
+/* RESPONSIVE UTILITIES */
+@media (max-width: 640px) {
+  .smartbeca-container {
+    padding: 0 1rem;
+  }
+  
+  .smartbeca-btn-primary,
+  .smartbeca-btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ACCESIBILIDAD */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
