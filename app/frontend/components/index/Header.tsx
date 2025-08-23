@@ -84,7 +84,9 @@ const Header: React.FC = () => {
               size="md"
               icon={LogIn}
               iconPosition="left"
-              onClick={() => window.location.href = ROUTES.AUTH}
+             onClick={() => window.location.href = '/frontend/components/auth'
+}
+
               className="shadow-lg hover:shadow-xl"
             >
               {INDEX_CONTENT.HEADER.LOGIN_BUTTON}
@@ -137,10 +139,8 @@ const Header: React.FC = () => {
                   icon={LogIn}
                   iconPosition="left"
                   fullWidth
-                  onClick={() => {
-                    closeMobileMenu();
-                    window.location.href = ROUTES.AUTH;
-                  }}
+onClick={() => window.location.href = '/frontend/components/auth'}
+
                   className="shadow-lg"
                 >
                   {INDEX_CONTENT.HEADER.LOGIN_BUTTON}

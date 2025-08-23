@@ -5,6 +5,8 @@ export const APP_CONFIG = {
   description: 'Sistema de Gestión de Becas - Beca 18',
   author: 'SmartBeca Team',
   url: process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000',
+  supabaseUrl: process.env.NEXT_PUBLIC_SUPABASE_URL || '',
+
 } as const;
 
 // RUTAS PRINCIPALES DEL SISTEMA

@@ -3,9 +3,9 @@
 
 /* VARIABLES CSS PARA SMARTBECA */
 :root {
-  /* Colores principales de SmartBeca */
-  --smartbeca-primary: #1e40af;        /* Azul principal suave */
-  --smartbeca-primary-dark: #1e3a8a;   /* Azul oscuro para hover */
+  /* Colores principales de SmartBeca - Estilo BecaYACHAY */
+  --smartbeca-primary: #2c5aa0;        /* Azul principal BecaYACHAY */
+  --smartbeca-primary-dark: #1e3d72;   /* Azul oscuro para hover */
   --smartbeca-primary-light: #3b82f6;  /* Azul claro para estados */
   
   /* Grises del sistema */
@@ -50,12 +50,13 @@ body {
 }
 
 body {
-  color: var(--smartbeca-gray-900);
-  background: var(--smartbeca-gray-50);
-  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  color: #374151;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 /* ENLACES BASE */
@@ -67,6 +68,36 @@ a {
 
 a:hover {
   color: var(--smartbeca-primary);
+}
+
+/* ESTILOS ESPECÍFICOS BECAYACHAY */
+.header-becayachay {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(44, 90, 160, 0.1);
+  transition: all 0.3s ease;
+}
+
+.logo-gradient {
+  background: linear-gradient(135deg, #2c5aa0, #1e3d72);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nav-link-effect::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #2c5aa0;
+  transition: width 0.3s ease;
+}
+
+.nav-link-effect:hover::after {
+  width: 100%;
 }
 
 /* CLASES UTILITARIAS PERSONALIZADAS */
@@ -83,42 +114,58 @@ a:hover {
 }
 
 .smartbeca-btn-primary {
-  background-color: var(--smartbeca-primary);
+  background: linear-gradient(135deg, #2c5aa0, #1e3d72);
   color: white;
   border: none;
   padding: 0.75rem 1.5rem;
-  border-radius: var(--smartbeca-border-radius);
-  font-weight: 500;
+  border-radius: 25px;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   box-shadow: var(--smartbeca-shadow);
 }
 
 .smartbeca-btn-primary:hover {
-  background-color: var(--smartbeca-primary-dark);
-  transform: translateY(-1px);
-  box-shadow: var(--smartbeca-shadow-lg);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(44, 90, 160, 0.3);
 }
 
 .smartbeca-btn-secondary {
-  background-color: white;
-  color: var(--smartbeca-primary);
-  border: 2px solid var(--smartbeca-primary);
-  padding: 0.75rem 1.5rem;
-  border-radius: var(--smartbeca-border-radius);
-  font-weight: 500;
+  background: white;
+  color: #2c5aa0;
+  border: 2px solid #2c5aa0;
+  padding: 1rem 2rem;
+  border-radius: 15px;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .smartbeca-btn-secondary:hover {
-  background-color: var(--smartbeca-primary);
+  background: #2c5aa0;
   color: white;
+  transform: translateY(-3px);
+}
+
+.smartbeca-btn-white {
+  background: white;
+  color: #2c5aa0;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.smartbeca-btn-white:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(255, 255, 255, 0.3);
 }
 
 /* GRADIENTES PERSONALIZADOS */
 .smartbeca-gradient {
-  background: linear-gradient(135deg, var(--smartbeca-primary) 0%, var(--smartbeca-primary-dark) 100%);
+  background: linear-gradient(135deg, #2c5aa0, #1e3d72);
 }
 
 .smartbeca-gradient-light {
@@ -143,31 +190,107 @@ a:hover {
 /* ANIMACIONES SUAVES */
 .smartbeca-fade-in {
   opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.6s ease forwards;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease-out forwards;
 }
 
 @keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.hero-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Animaciones escalonadas */
+.hero-content > *:nth-child(1) { animation-delay: 0s; }
+.hero-content > *:nth-child(2) { animation-delay: 0.1s; }
+.hero-content > *:nth-child(3) { animation-delay: 0.2s; }
+.hero-content > *:nth-child(4) { animation-delay: 0.3s; }
+.hero-content > *:nth-child(5) { animation-delay: 0.4s; }
+
 /* ESTILOS PARA CARDS */
 .smartbeca-card {
   background: white;
-  border-radius: var(--smartbeca-border-radius-lg);
-  padding: 1.5rem;
-  box-shadow: var(--smartbeca-shadow);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
-  border: 1px solid var(--smartbeca-gray-200);
+  border: 1px solid #f1f5f9;
 }
 
 .smartbeca-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--smartbeca-shadow-lg);
-  border-color: var(--smartbeca-primary-light);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* ESTILOS HERO BECAYACHAY */
+.hero-becayachay {
+  min-height: 70vh;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-becayachay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -10%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(44, 90, 160, 0.05), rgba(30, 61, 114, 0.1));
+  border-radius: 50% 0 0 50%;
+  transform: rotate(-5deg);
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(44, 90, 160, 0.1);
+  color: #2c5aa0;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.hero-title-gradient {
+  background: linear-gradient(135deg, #1f2937, #2c5aa0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #2c5aa0;
+  display: block;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
 }
 
 /* RESPONSIVE UTILITIES */
@@ -190,5 +313,9 @@ a:hover {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+  
+  .hero-float {
+    animation: none !important;
   }
 }
